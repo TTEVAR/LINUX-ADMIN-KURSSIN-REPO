@@ -42,6 +42,20 @@ def home():
 			 box-shadow: 0 0 10px #e74c3c, 0 0 20px #e74c3c;
 			 background-color: #FFFF00;
                 }
+		.button-link {
+			display: inline-block;
+			padding: 12px 24px;
+			background-color: #4CAF50;
+			color: white;
+			text-decoration: none;
+			border-radius: 8px;
+			font-size: 18px
+			font-weight: bold;
+			transition: background-color 0.3s ease;
+		}
+		.button-link:hover {
+			background-color: #45a049;
+		}
                 #sql-time {
                     font-weight: bold;
                     color: #e74c3c;  /* red-ish for visibility */
@@ -51,7 +65,7 @@ def home():
         <body>
 	    <h1>Welcome Reviewer to Ya bois LEMPING Server!</h1>
             <p>Current SQL server time: <span id="sql-time">Loading...</span></p>
-            
+            <p><a href="/data-analysis" class="button-link">Press to indulge in some DATA</a></p>
             <script>
                 async function fetchTime() {
                     try {
@@ -69,7 +83,7 @@ def home():
         </body>
     </html>
     """
-    return render_template_string(html)
+    return html
 
 # API endpoint to fetch current SQL time
 @app.route('/time')
